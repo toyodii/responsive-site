@@ -1,0 +1,141 @@
+@charset "utf-8";
+@import "settings";
+
+/* Base
+------------------------------------------------------------*/
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  letter-spacing: 0.1em;
+  @media (min-width: 1025px) {
+    font-size: 2.8rem;
+  }
+}
+
+a {
+  @include link-colors($keyColor, darken($keyColor, 10%), lighten($keyColor, 5%), darken($keyColor, 10%));
+  text-decoration: none;
+}
+
+/* Align
+------------------------------------------------------------*/
+.text-center {
+  text-align: center;
+}
+
+/* Layout
+------------------------------------------------------------*/
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Font
+------------------------------------------------------------*/
+.abel {
+  font-family: 'Abel', sans-serif;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* Header
+------------------------------------------------------------*/
+header {
+    height: 250px;
+    width: 100%;
+    background: url(../images/img_main.jpg) center;
+  @media (min-width: 769px) {
+  height: 500px;
+  }
+}
+
+/* Contents
+------------------------------------------------------------*/
+// Common Styles
+#main {
+  padding: 7% 0;
+  .container {
+    margin-top: 5%;
+    padding: 0;
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);// ボックスを縦に並べる
+    .main-box{
+    @include flex(1);
+    @include box-sizing(border-box);
+    padding: 3%;
+    h3 {
+      background-color: #e7e7e7;
+      padding: 2% 0;
+    }
+      p {
+        background-color: #9e9e9e;
+        padding: 15% 0;
+        color: #fff;
+      }
+        @media (min-width: 1025px) {
+        padding: 0 1%;
+      }
+    }
+    @media (min-width: 1025px) {
+      @include flex-direction(row);// ボックスを横に並べる
+      justify-content: space-between;
+      padding: 0 1%;
+    }
+  }
+  h1 {
+    @extend .abel;
+    @extend .uppercase;
+  }
+}
+
+/* Footer
+------------------------------------------------------------*/
+footer {
+  background-color: $subColor;
+  padding: 4% 0 5%;
+  text-align: center;
+  color: #FFF;
+  .btn{
+    margin: auto;
+    text-align: center;
+    padding: 5px 0;
+    width: 180px;
+    display: block;
+    color: #fff;
+    background-color: $keyColor;
+    @extend .abel;
+    @extend .uppercase;
+    @include border-radius(4px);
+  }
+}
+
+// PC
+@media (min-width: 1025px) {
+  /* Base
+  ------------------------------------------------------------*/
+  a {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  /* Header
+  ------------------------------------------------------------*/
+  .button-contact {
+    &:hover, &:active {
+      background-color: $fontColor;
+      color: #FFF;
+    }
+  }
+
+
+}
+
